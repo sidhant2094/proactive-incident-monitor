@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+
+  oam:
+    build: ./oam
+
+    container_name: comviva-oam
+
+    env_file:
+      - ./oam/.env
+
+    ports:
+      - "5001:5001"
+
+    depends_on:
+      - bac
+
+    networks:
+      - comviva-network
+
+    mem_limit: 512m
+    cpus: 0.50
+
+    restart: unless-stopped
+
+  bac:
+    build: ./bac
+
+    container_name: comviva-bac
+
+    env_file:
+      - ./bac/.env
+
+    ports:
+      - "5002:5002"
+
+    networks:
+      - comviva-network
+
+    mem_limit: 512m
+    cpus: 0.50
+
+    restart: unless-stopped
+
+networks:
+  comviva-network:
+    driver: bridge
