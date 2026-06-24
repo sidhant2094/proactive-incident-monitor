@@ -167,8 +167,8 @@ docker compose up --build
 
 ## Phase 2 🚧
 
-- [ ] Monitoring Engine
-- [ ] Continuous Health Checks
+- [x] Monitoring Engine
+- [x] Continuous Health Checks
 - [ ] Service Discovery
 
 ---
