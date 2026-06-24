@@ -1,10 +1,7 @@
-version: "3.9"
-
 services:
 
   oam:
     build: ./oam
-
     container_name: comviva-oam
 
     env_file:
@@ -26,7 +23,6 @@ services:
 
   bac:
     build: ./bac
-
     container_name: comviva-bac
 
     env_file:
@@ -40,6 +36,25 @@ services:
 
     mem_limit: 512m
     cpus: 0.50
+
+    restart: unless-stopped
+
+  monitor:
+    build: ./monitor
+    container_name: monitoring-engine
+
+    env_file:
+      - ./monitor/.env
+
+    depends_on:
+      - oam
+      - bac
+
+    networks:
+      - comviva-network
+
+    mem_limit: 256m
+    cpus: 0.25
 
     restart: unless-stopped
 
