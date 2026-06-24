@@ -1,4 +1,4 @@
-# 🚀 Proactive Incident Monitor
+# Proactive Incident Monitor
 
 A Docker-based microservices project that simulates a proactive incident monitoring and self-healing platform inspired by real-world enterprise production environments.
 
